@@ -1,48 +1,48 @@
 const schedule = [
     {
         name: "RSI, ORIGIN, CONSOLIDATED OUTLAND, ARGO",
-        timestamp: 1746115200,
-        end: 1746288000,
+        timestamp: 1747324800,
+        end: 1747497600,
         location: "Bevic Convention Center, Area 18",
         participants: "ROBERTS SPACE INDUSTRIES, ORIGIN JUMPWORKS, CONSOLIDATED OUTLAND, ARGO ASTRONAUTICS",
         limitedSales: "RSI Constellation Phoenix",
-        waveTimestamps: [1746115200, 1746144000, 1746169200]
+        waveTimestamps: [1747324800, 1747353600, 1747378800]
     },
     {
         name: "CRUSADER, MIRAI, MISC, TUMBRIL",
-        timestamp: 1746288000,
-        end: 1746460800,
+        timestamp: 1747497600,
+        end: 1747670400,
         location: "Bevic Convention Center, Area 18",
         participants: "CRUSADER, MIRAI, MUSASHI INDUSTRIAL AND STARFLIGHT CONCERN, TUMBRIL LAND SYSTEMS"
     },
     {
         name: "AEGIS DYNAMICS",
-        timestamp: 1746460800,
-        end: 1746633600,
+        timestamp: 1747670400,
+        end: 1747843200,
         location: "Bevic Convention Center, Area 18",
         participants: "AEGIS DYNAMICS",
         limitedSales: "Aegis Idris-P, Aegis Javelin",
-        waveTimestamps: [1746460800, 1746489600, 1746514800]
+        waveTimestamps: [1747670400, 1747699200, 1747724400]
     },
     {
         name: "ANVIL AEROSPACE",
-        timestamp: 1746633600,
-        end: 1746806400,
+        timestamp: 1747843200,
+        end: 1748016000,
         location: "Bevic Convention Center, Area 18",
         participants: "ANVIL AEROSPACE"
     },
     {
         name: "Drake Defensecon",
-        timestamp: 1746806400,
-        end: 1746979200,
+        timestamp: 1748016000,
+        end: 1748188800,
         location: "Riker Memorial Spaceport, Area 18",
         limitedSales: "Drake Kraken, Drake Kraken Privateer",
-        waveTimestamps: [1746806400, 1746835200, 1746864000]
+        waveTimestamps: [1748016000, 1748044800, 1748073600]
     },
     {
         name: "INVICTUS FINALE",
-        timestamp: 1746979200,
-        end: 1747177200,
+        timestamp: 1748188800,
+        end: 1748386800,
         location: "Riker Memorial Spaceport, Area 18"
     }
 ];
@@ -211,13 +211,13 @@ window.onload = () => {
 };
 
 function copyToDiscord() {
-    const discordSchedule = `Invictus Launch Week 2955 Official Schedule:\n\n` +
-        `**RSI, ORIGIN, CONSOLIDATED OUTLAND, ARGO:**\n<t:1746115200:f> [Bevic Convention Center, Area 18 <t:1746115200:R>]\nLimited Ship Sales: RSI Constellation Phoenix\nWave 1: <t:1746115200:T>, Wave 2: <t:1746144000:T>, Wave 3: <t:1746169200:T>\n\n` +
-        `**CRUSADER, MIRAI, MISC, TUMBRIL:**\n<t:1746288000:f> [Bevic Convention Center, Area 18 <t:1746288000:R>]\n\n` +
-        `**AEGIS DYNAMICS:**\n<t:1746460800:f> [Bevic Convention Center, Area 18 <t:1746460800:R>]\nLimited Ship Sales: Aegis Idris-P, Aegis Javelin\nWave 1: <t:1746460800:T>, Wave 2: <t:1746489600:T>, Wave 3: <t:1746514800:T>\n\n` +
-        `**ANVIL AEROSPACE:**\n<t:1746633600:f> [Bevic Convention Center, Area 18 <t:1746633600:R>]\n\n` +
-        `**Drake Defensecon:**\n<t:1746806400:f> [Riker Memorial Spaceport, Area 18 <t:1746806400:R>]\nLimited Ship Sales: Drake Kraken, Drake Kraken Privateer\nWave 1: <t:1746806400:T>, Wave 2: <t:1746835200:T>, Wave 3: <t:1746864000:T>\n\n` +
-        `**INVICTUS FINALE:**\n<t:1746979200:f> [Riker Memorial Spaceport, Area 18 <t:1746979200:R>]\nEnd of Invictus Launch Week 2955: <t:1747177200:f> [Riker Memorial Spaceport, Area 18 <t:1747177200:R>]`;
+    const discordSchedule = `Invictus Launch Week 2955 Official Schedule (Delayed 2 Weeks):\n\n` +
+        `**RSI, ORIGIN, CONSOLIDATED OUTLAND, ARGO:**\n<t:1747324800:f> [Bevic Convention Center, Area 18 <t:1747324800:R>]\nLimited Ship Sales: RSI Constellation Phoenix\nWave 1: <t:1747324800:T>, Wave 2: <t:1747353600:T>, Wave 3: <t:1747378800:T>\n\n` +
+        `**CRUSADER, MIRAI, MISC, TUMBRIL:**\n<t:1747497600:f> [Bevic Convention Center, Area 18 <t:1747497600:R>]\n\n` +
+        `**AEGIS DYNAMICS:**\n<t:1747670400:f> [Bevic Convention Center, Area 18 <t:1747670400:R>]\nLimited Ship Sales: Aegis Idris-P, Aegis Javelin\nWave 1: <t:1747670400:T>, Wave 2: <t:1747699200:T>, Wave 3: <t:1747724400:T>\n\n` +
+        `**ANVIL AEROSPACE:**\n<t:1747843200:f> [Bevic Convention Center, Area 18 <t:1747843200:R>]\n\n` +
+        `**Drake Defensecon:**\n<t:1748016000:f> [Riker Memorial Spaceport, Area 18 <t:1748016000:R>]\nLimited Ship Sales: Drake Kraken, Drake Kraken Privateer\nWave 1: <t:1748016000:T>, Wave 2: <t:1748044800:T>, Wave 3: <t:1748073600:T>\n\n` +
+        `**INVICTUS FINALE:**\n<t:1748188800:f> [Riker Memorial Spaceport, Area 18 <t:1748188800:R>]\nEnd of Invictus Launch Week 2955: <t:1748386800:f> [Riker Memorial Spaceport, Area 18 <t:1748386800:R>]`;
 
     navigator.clipboard.writeText(discordSchedule).then(() => {
         document.getElementById('copyToDiscordBtn').innerText = 'Copied schedule in Discord format';
