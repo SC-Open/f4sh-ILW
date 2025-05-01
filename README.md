@@ -1,6 +1,6 @@
-# Invictus Launch Week 2954 Event Schedule
+# Invictus Launch Week 2955 Event Schedule
 
-Experience the grandeur of the United Empire of Earth Navy's (UEEN) biggest military expo and free-fly event. This interactive web app showcases a comprehensive schedule, countdown timers, and a Discord-compatible schedule ready to copy for the Star Citizen Invictus Launch Week 2954 event, occurring from May 17 to 29, 2024. Stay updated with key event timelines and details effortlessly.
+Experience the grandeur of the United Empire of Earth Navy's (UEEN) biggest military expo and free-fly event. This interactive web app showcases a comprehensive schedule, countdown timers, and a Discord-compatible schedule ready to copy for the Star Citizen Invictus Launch Week 2955 event, occurring from May 17 to 29, 2024. Stay updated with key event timelines and details effortlessly.
 
 ## Features
 
