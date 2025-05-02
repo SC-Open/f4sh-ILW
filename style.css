@@ -2,7 +2,7 @@
 
 body,
 html {
-    background-color: #101e3c;
+    background: linear-gradient(to bottom, #081430 0%, #0b1d3c 30%, #0d2850 60%, #12366c 100%);
     color: #fafafa;
     font-family: 'Exo', sans-serif;
     margin: 0;
