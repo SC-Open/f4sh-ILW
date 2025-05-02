@@ -4,7 +4,9 @@ const schedule = [
         timestamp: 1747324800,
         end: 1747497600,
         location: "Bevic Convention Center, Area 18",
-        participants: "GREYCAT INDUSTRIAL, AEGIS DYNAMICS"
+        participants: "GREYCAT INDUSTRIAL, AEGIS DYNAMICS",
+        limitedSales: "Aegis Idris-P, Aegis Javelin",
+        waveTimestamps: [1747324800, 1747353600, 1747378800]
     },
     {
         name: "Origin, RSI & Argo",
@@ -218,7 +220,7 @@ window.onload = () => {
 
 function copyToDiscord() {
     const discordSchedule = `Invictus Launch Week 2955 Official Schedule:\n\n` +
-        `**Greycat & Aegis:**\n<t:1747324800:f> [Bevic Convention Center, Area 18 <t:1747324800:R>]\n\n` +
+        `**Greycat & Aegis:**\n<t:1747324800:f> [Bevic Convention Center, Area 18 <t:1747324800:R>]\nLimited Ship Sales: Aegis Idris-P, Aegis Javelin\nWave 1: <t:1747324800:T>, Wave 2: <t:1747353600:T>, Wave 3: <t:1747378800:T>\n\n` +
         `**Origin, RSI & Argo:**\n<t:1747497600:f> [Bevic Convention Center, Area 18 <t:1747497600:R>]\nLimited Ship Sales: RSI Constellation Phoenix\nWave 1: <t:1747497600:T>, Wave 2: <t:1747526400:T>, Wave 3: <t:1747551600:T>\n\n` +
         `**Consolidated Outland, MISC & Mirai:**\n<t:1747670400:f> [Bevic Convention Center, Area 18 <t:1747670400:R>]\n\n` +
         `**Crusader & Tumbril:**\n<t:1747843200:f> [Bevic Convention Center, Area 18 <t:1747843200:R>]\n\n` +
