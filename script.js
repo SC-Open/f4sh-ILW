@@ -1,21 +1,35 @@
 const schedule = [
     {
         name: "Greycat & Aegis",
-        timestamp: 1747324800,
+        timestamp: 1747324800, // May 15, 2025 08:00 UTC
         end: 1747497600,
         location: "Bevic Convention Center, Area 18",
         participants: "GREYCAT INDUSTRIAL, AEGIS DYNAMICS",
         limitedSales: "Aegis Idris-P, Aegis Javelin",
-        waveTimestamps: [1747324800, 1747353600, 1747378800]
+        waveTimestamps: [
+            1747324800,              // Wave 1: 08:00 UTC (May 15)
+            1747353600,              // Wave 2: 16:00 UTC (May 15)
+            1747382400,              // Wave 3: 00:00 UTC (May 16)
+            1747411200,              // Wave 4: 08:00 UTC (May 16)
+            1747440000,              // Wave 5: 16:00 UTC (May 16)
+            1747468800               // Wave 6: 00:00 UTC (May 17)
+        ]
     },
     {
         name: "Origin, RSI & Argo",
-        timestamp: 1747497600,
+        timestamp: 1747497600, // May 17, 2025 08:00 UTC
         end: 1747670400,
         location: "Bevic Convention Center, Area 18",
         participants: "ORIGIN JUMPWORKS, ROBERTS SPACE INDUSTRIES, ARGO ASTRONAUTICS",
         limitedSales: "RSI Constellation Phoenix",
-        waveTimestamps: [1747497600, 1747526400, 1747551600]
+        waveTimestamps: [
+            1747497600,              // Wave 1: 08:00 UTC (May 17)
+            1747526400,              // Wave 2: 16:00 UTC (May 17)
+            1747555200,              // Wave 3: 00:00 UTC (May 18)
+            1747584000,              // Wave 4: 08:00 UTC (May 18)
+            1747612800,              // Wave 5: 16:00 UTC (May 18)
+            1747641600               // Wave 6: 00:00 UTC (May 19)
+        ]
     },
     {
         name: "Consolidated Outland, MISC & Mirai",
@@ -39,19 +53,26 @@ const schedule = [
         participants: "ANVIL AEROSPACE"
     },
     {
-        name: "Drake Defensecon",
-        timestamp: 1748188800,
+        name: "Drake",
+        timestamp: 1748188800, // May 21, 2025 08:00 UTC
         end: 1748260800,
-        location: "Riker Memorial Spaceport, Area 18",
+        location: "Bevic Convention Center, Area 18",
         participants: "DRAKE INTERPLANETARY",
         limitedSales: "Drake Kraken, Drake Kraken Privateer",
-        waveTimestamps: [1748188800, 1748217600, 1748246400]
+        waveTimestamps: [
+            1748188800,              // Wave 1: 08:00 UTC (May 21)
+            1748217600,              // Wave 2: 16:00 UTC (May 21)
+            1748246400,              // Wave 3: 00:00 UTC (May 22)
+            1748275200,              // Wave 4: 08:00 UTC (May 22)
+            1748304000,              // Wave 5: 16:00 UTC (May 22)
+            1748332800               // Wave 6: 00:00 UTC (May 23)
+        ]
     },
     {
         name: "Invictus Finale",
         timestamp: 1748260800,
         end: 1748433600,
-        location: "Riker Memorial Spaceport, Area 18"
+        location: "Bevic Convention Center, Area 18"
     }
 ];
 
