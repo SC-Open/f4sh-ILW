@@ -53,10 +53,10 @@ const schedule = [
         participants: "ANVIL AEROSPACE"
     },
     {
-        name: "Special Aegis Idris Resale",
+        name: "Special Idris Resale",
         timestamp: 1748016000, // Starts with Anvil — May 23, 2025 @ 09:00 UTC
         end: 1748102400,        // May 24, 2025 @ 09:00 UTC
-        location: "Bevic Convention Center, Area 18",
+        location: "Pledge Store",
         participants: "AEGIS DYNAMICS",
         limitedSales: "Aegis Idris-P",
         waveTimestamps: [
@@ -293,9 +293,8 @@ function copyToDiscord() {
 
         `**Anvil Aerospace:**\n<t:1748016000:f> [Bevic Convention Center, Area 18 <t:1748016000:R>]\n\n` +
 
-        `**Special Aegis Idris Resale (4-hour Waves):**\n<t:1748284800:f> [Bevic Convention Center, Area 18 <t:1748284800:R>]\n` +
-        `Limited Ship Sales: Aegis Idris-P\n` +
-        `Wave 1: <t:1748284800:T>, Wave 2: <t:1748299200:T>, Wave 3: <t:1748313600:T>, Wave 4: <t:1748328000:T>, Wave 5: <t:1748342400:T>, Wave 6: <t:1748356800:T>\n\n` +
+        `**↳ Special Aegis Idris Resale (4-hour Waves):**\nLimited Ship Sales: Aegis Idris-P\n` +
+        `Wave 1: <t:1748016000:T>, Wave 2: <t:1748030400:T>, Wave 3: <t:1748044800:T>, Wave 4: <t:1748059200:T>, Wave 5: <t:1748073600:T>, Wave 6: <t:1748088000:T>\n\n` +
 
         `**Drake Defensecon:**\n<t:1748188800:f> [Bevic Convention Center, Area 18 <t:1748188800:R>]\n` +
         `Limited Ship Sales: Drake Kraken, Drake Kraken Privateer\n` +
@@ -312,4 +311,5 @@ function copyToDiscord() {
         console.error('Failed to copy text: ', err);
     });
 }
+
 
