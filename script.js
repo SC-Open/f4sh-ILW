@@ -54,19 +54,19 @@ const schedule = [
     },
     {
         name: "Special Aegis Idris Resale",
-        timestamp: 1748284800, // May 23, 2025 16:00 UTC
-        end: 1748371200,       // May 24, 2025 12:00 UTC
+        timestamp: 1748016000, // Starts with Anvil — May 23, 2025 @ 09:00 UTC
+        end: 1748102400,        // May 24, 2025 @ 09:00 UTC
         location: "Bevic Convention Center, Area 18",
         participants: "AEGIS DYNAMICS",
         limitedSales: "Aegis Idris-P",
         waveTimestamps: [
-            1748284800, // Wave 1: 16:00 UTC (May 23)
-            1748299200, // Wave 2: 20:00 UTC (May 23)
-            1748313600, // Wave 3: 00:00 UTC (May 24)
-            1748328000, // Wave 4: 04:00 UTC (May 24)
-            1748342400, // Wave 5: 08:00 UTC (May 24)
-            1748356800  // Wave 6: 12:00 UTC (May 24)
-        ]
+            1748016000, // Wave 1: 09:00 UTC (May 23)
+            1748030400, // Wave 2: 13:00 UTC
+            1748044800, // Wave 3: 17:00 UTC
+            1748059200, // Wave 4: 21:00 UTC
+            1748073600, // Wave 5: 01:00 UTC (May 24)
+            1748088000  // Wave 6: 05:00 UTC (May 24)
+            ]
     },
     {
         name: "Drake",
