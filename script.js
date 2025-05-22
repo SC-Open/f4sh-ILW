@@ -79,9 +79,6 @@ const schedule = [
             1748188800, // Wave 1: 09:00 UTC (May 25)
             1748217600, // Wave 2: 17:00 UTC (May 25)
             1748246400, // Wave 3: 01:00 UTC (May 26)
-            1748275200, // Wave 4: 09:00 UTC (May 26)
-            1748304000, // Wave 5: 17:00 UTC (May 26)
-            1748332800  // Wave 6: 01:00 UTC (May 27)
         ]
     },
     {
@@ -298,7 +295,7 @@ function copyToDiscord() {
 
         `**Drake Defensecon:**\n<t:1748188800:f> [Bevic Convention Center, Area 18 <t:1748188800:R>]\n` +
         `Limited Ship Sales: Drake Kraken, Drake Kraken Privateer\n` +
-        `Wave 1: <t:1748188800:T>, Wave 2: <t:1748217600:T>, Wave 3: <t:1748246400:T>, Wave 4: <t:1748275200:T>, Wave 5: <t:1748304000:T>, Wave 6: <t:1748332800:T>\n\n` +
+        `Wave 1: <t:1748188800:T>, Wave 2: <t:1748217600:T>, Wave 3: <t:1748246400:T>\n\n` +
 
         `**Invictus Finale – All Manufacturers Restock:**\n<t:1748275200:f> [Bevic Convention Center, Area 18 <t:1748275200:R>]\n` +
         `Limited Ship Sales: [All Limited Ships from Every Manufacturer](https://robertsspaceindustries.com/en/store/pledge/browse/extras/?search=&sort=weight&direction=desc)\n` +
