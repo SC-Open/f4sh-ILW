@@ -53,35 +53,35 @@ const schedule = [
         participants: "ANVIL AEROSPACE"
     },
     {
-        name: "Special Aegis Idris Resale",
-        timestamp: 1748284800, // May 23, 2025 16:00 UTC
-        end: 1748371200,       // May 24, 2025 12:00 UTC
-        location: "Bevic Convention Center, Area 18",
-        participants: "AEGIS DYNAMICS",
-        limitedSales: "Aegis Idris-P",
-        waveTimestamps: [
-            1748284800, // Wave 1: 16:00 UTC (May 23)
-            1748299200, // Wave 2: 20:00 UTC (May 23)
-            1748313600, // Wave 3: 00:00 UTC (May 24)
-            1748328000, // Wave 4: 04:00 UTC (May 24)
-            1748342400, // Wave 5: 08:00 UTC (May 24)
-            1748356800  // Wave 6: 12:00 UTC (May 24)
-        ]
-    },
-    {
+    name: "Special Aegis Idris Resale",
+    timestamp: 1748284800, //  May 23, 2025 16:00 UTC
+    end: 1748371200,       //  May 24, 2025 12:00 UTC
+    location: "Bevic Convention Center, Area 18",
+    participants: "AEGIS DYNAMICS",
+    limitedSales: "Aegis Idris-P",
+    waveTimestamps: [
+        1748284800, // Wave 1: 16:00 UTC (May 23)
+        1748299200, // Wave 2: 20:00 UTC (May 23)
+        1748313600, // Wave 3: 00:00 UTC (May 24)
+        1748328000, // Wave 4: 04:00 UTC (May 24)
+        1748342400, // Wave 5: 08:00 UTC (May 24)
+        1748356800  // Wave 6: 12:00 UTC (May 24)
+    ]
+},
+       {
         name: "Drake",
-        timestamp: 1748188800, // May 21, 2025 08:00 UTC
-        end: 1748260800,
+        timestamp: 1748451600, // May 25, 2025 09:00 UTC
+        end: 1748523600,       // May 26, 2025 08:00 UTC
         location: "Bevic Convention Center, Area 18",
         participants: "DRAKE INTERPLANETARY",
         limitedSales: "Drake Kraken, Drake Kraken Privateer",
         waveTimestamps: [
-            1748188800,              // Wave 1: 08:00 UTC (May 21)
-            1748217600,              // Wave 2: 16:00 UTC (May 21)
-            1748246400,              // Wave 3: 00:00 UTC (May 22)
-            1748275200,              // Wave 4: 08:00 UTC (May 22)
-            1748304000,              // Wave 5: 16:00 UTC (May 22)
-            1748332800               // Wave 6: 00:00 UTC (May 23)
+            1748451600, // Wave 1: 09:00 UTC (May 25)
+            1748480400, // Wave 2: 17:00 UTC (May 25)
+            1748509200, // Wave 3: 01:00 UTC (May 26)
+            1748538000, // Wave 4: 09:00 UTC (May 26)
+            1748566800, // Wave 5: 17:00 UTC (May 26)
+            1748595600  // Wave 6: 01:00 UTC (May 27)
         ]
     },
     {
