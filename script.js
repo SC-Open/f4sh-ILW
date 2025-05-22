@@ -70,15 +70,15 @@ const schedule = [
     },
     {
         name: "Invictus Finale",
-        timestamp: 1748260800, // May 23, 2025 08:00 UTC
-        end: 1748433600,        // May 25, 2025 08:00 UTC
+        timestamp: 1748352000,       // May 26, 2025 08:00 UTC
+        end: 1748524800,             // May 28, 2025 08:00 UTC
         location: "Bevic Convention Center, Area 18",
         participants: "ALL MANUFACTURERS",
         limitedSales: "All Limited Ships from Every Manufacturer",
         waveTimestamps: [
-        1748275200,  // Wave 1 – May 26, 16:00 UTC
-        1748304000,  // Wave 2 – May 27, 00:00 UTC
-        1748332800   // Wave 3 – May 27, 08:00 UTC
+            1748366400,              // Wave 1 – May 26, 16:00 UTC
+            1748395200,              // Wave 2 – May 27, 00:00 UTC
+            1748424000               // Wave 3 – May 27, 08:00 UTC
     ]
     }
 ];
