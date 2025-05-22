@@ -53,6 +53,22 @@ const schedule = [
         participants: "ANVIL AEROSPACE"
     },
     {
+        name: "Special Aegis Idris Resale",
+        timestamp: 1748284800, // May 23, 2025 16:00 UTC
+        end: 1748371200,       // May 24, 2025 12:00 UTC
+        location: "Bevic Convention Center, Area 18",
+        participants: "AEGIS DYNAMICS",
+        limitedSales: "Aegis Idris-P",
+        waveTimestamps: [
+            1748284800, // Wave 1: 16:00 UTC (May 23)
+            1748299200, // Wave 2: 20:00 UTC (May 23)
+            1748313600, // Wave 3: 00:00 UTC (May 24)
+            1748328000, // Wave 4: 04:00 UTC (May 24)
+            1748342400, // Wave 5: 08:00 UTC (May 24)
+            1748356800  // Wave 6: 12:00 UTC (May 24)
+        ]
+    },
+    {
         name: "Drake",
         timestamp: 1748188800, // May 21, 2025 08:00 UTC
         end: 1748260800,
@@ -181,53 +197,68 @@ function updateSchedule() {
 
         if (event.limitedSales) {
             let limitedSalesLinks = '';
-            const sales = event.limitedSales.split(', ');
-            sales.forEach(sale => {
-                let link = '';
-                switch (sale) {
-                    case 'RSI Constellation Phoenix':
-                        link = 'https://robertsspaceindustries.com/store/pledge/browse/extras/?search=phoenix&sort=weight&direction=desc';
-                        break;
-                    case 'Aegis Idris-P':
-                        link = 'https://robertsspaceindustries.com/store/pledge/browse/extras/?search=idris&sort=weight&direction=desc';
-                        break;
-                    case 'Aegis Javelin':
-                        link = 'https://robertsspaceindustries.com/store/pledge/browse/extras/?search=javelin&sort=weight&direction=desc';
-                        break;
-                    case 'Drake Kraken':
-                    case 'Drake Kraken Privateer':
-                        link = 'https://robertsspaceindustries.com/store/pledge/browse/extras/?search=kraken&sort=weight&direction=desc';
-                        break;
-                }
-                limitedSalesLinks += `<a href="${link}" class="limited-sales-link" target="_blank">${sale}</a>, `;
-            });
-            limitedSalesLinks = limitedSalesLinks.slice(0, -2); // Remove the trailing comma and space
+
+            if (event.limitedSales === 'All Limited Ships from Every Manufacturer') {
+                limitedSalesLinks = `<a href="https://robertsspaceindustries.com/en/store/pledge/browse/extras/?search=&sort=weight&direction=desc" class="limited-sales-link" target="_blank">${event.limitedSales}</a>`;
+            } else {
+                const sales = event.limitedSales.split(', ');
+                sales.forEach(sale => {
+                    let link = '';
+                    switch (sale) {
+                        case 'RSI Constellation Phoenix':
+                            link = 'https://robertsspaceindustries.com/store/pledge/browse/extras/?search=phoenix&sort=weight&direction=desc';
+                            break;
+                        case 'Aegis Idris-P':
+                            link = 'https://robertsspaceindustries.com/store/pledge/browse/extras/?search=idris&sort=weight&direction=desc';
+                            break;
+                        case 'Aegis Javelin':
+                            link = 'https://robertsspaceindustries.com/store/pledge/browse/extras/?search=javelin&sort=weight&direction=desc';
+                            break;
+                        case 'Drake Kraken':
+                        case 'Drake Kraken Privateer':
+                            link = 'https://robertsspaceindustries.com/store/pledge/browse/extras/?search=kraken&sort=weight&direction=desc';
+                            break;
+                    }
+                    if (link) {
+                        limitedSalesLinks += `<a href="${link}" class="limited-sales-link" target="_blank">${sale}</a>, `;
+                    } else {
+                        limitedSalesLinks += `${sale}, `;
+                    }
+                });
+                limitedSalesLinks = limitedSalesLinks.slice(0, -2); // remove trailing comma and space
+            }
 
             eventHTML += `<div class="limited-sales">Limited Ship Sales: ${limitedSalesLinks}</div>`;
+
             let lastWaveStatus = '';
-            event.waveTimestamps.forEach((waveTimestamp, waveIndex) => {
-                const nextWaveTimestamp = (waveIndex < event.waveTimestamps.length - 1) ?
-                    event.waveTimestamps[waveIndex + 1] :
-                    (nextEventTimestamp ? nextEventTimestamp : Number.MAX_SAFE_INTEGER);
-                const waveTimeLeft = getTimeLeft(waveTimestamp, nextWaveTimestamp);
+            if (event.waveTimestamps) {
+                event.waveTimestamps.forEach((waveTimestamp, waveIndex) => {
+                    const nextWaveTimestamp = (waveIndex < event.waveTimestamps.length - 1) ?
+                        event.waveTimestamps[waveIndex + 1] :
+                        (nextEventTimestamp ? nextEventTimestamp : Number.MAX_SAFE_INTEGER);
+                    const waveTimeLeft = getTimeLeft(waveTimestamp, nextWaveTimestamp);
 
-                let waveStatus;
-                if (waveTimeLeft.isHappening) {
-                    waveStatus = `Wave ${waveIndex + 1}: <span class="wave-happening-now">Started. Good Luck!</span>`;
-                    if (lastWaveStatus === 'Happening') {
-                        eventHTML = eventHTML.replace(`Wave ${waveIndex}: <span class="wave-happening-now">Started. Good Luck!</span>`, `Wave ${waveIndex}: <span class="finished-wave">Passed</span>`);
+                    let waveStatus;
+                    if (waveTimeLeft.isHappening) {
+                        waveStatus = `Wave ${waveIndex + 1}: <span class="wave-happening-now">Started. Good Luck!</span>`;
+                        if (lastWaveStatus === 'Happening') {
+                            eventHTML = eventHTML.replace(
+                                `Wave ${waveIndex}: <span class="wave-happening-now">Started. Good Luck!</span>`,
+                                `Wave ${waveIndex}: <span class="finished-wave">Passed</span>`
+                            );
+                        }
+                        lastWaveStatus = 'Happening';
+                    } else if (waveTimeLeft.hasPassed) {
+                        waveStatus = `Wave ${waveIndex + 1}: <span class="finished-wave">Passed</span>`;
+                        lastWaveStatus = 'Passed';
+                    } else {
+                        waveStatus = `Wave ${waveIndex + 1}: ${waveTimeLeft.text}`;
+                        lastWaveStatus = 'Upcoming';
                     }
-                    lastWaveStatus = 'Happening';
-                } else if (waveTimeLeft.hasPassed) {
-                    waveStatus = `Wave ${waveIndex + 1}: <span class="finished-wave">Passed</span>`;
-                    lastWaveStatus = 'Passed';
-                } else {
-                    waveStatus = `Wave ${waveIndex + 1}: ${waveTimeLeft.text}`;
-                    lastWaveStatus = 'Upcoming';
-                }
 
-                eventHTML += `<div class="wave">${waveStatus}</div>`;
-            });
+                    eventHTML += `<div class="wave">${waveStatus}</div>`;
+                });
+            }
         }
 
         eventHTML += `</div>`;
@@ -248,13 +279,32 @@ window.onload = () => {
 
 function copyToDiscord() {
     const discordSchedule = `Invictus Launch Week 2955 Official Schedule:\n\n` +
-        `**Greycat & Aegis:**\n<t:1747324800:f> [Bevic Convention Center, Area 18 <t:1747324800:R>]\nLimited Ship Sales: Aegis Idris-P, Aegis Javelin\nWave 1: <t:1747324800:T>, Wave 2: <t:1747353600:T>, Wave 3: <t:1747378800:T>\n\n` +
-        `**Origin, RSI & Argo:**\n<t:1747497600:f> [Bevic Convention Center, Area 18 <t:1747497600:R>]\nLimited Ship Sales: RSI Constellation Phoenix\nWave 1: <t:1747497600:T>, Wave 2: <t:1747526400:T>, Wave 3: <t:1747551600:T>\n\n` +
+        `**Greycat & Aegis:**\n<t:1747324800:f> [Bevic Convention Center, Area 18 <t:1747324800:R>]\n` +
+        `Limited Ship Sales: Aegis Idris-P, Aegis Javelin\n` +
+        `Wave 1: <t:1747324800:T>, Wave 2: <t:1747353600:T>, Wave 3: <t:1747382400:T>, Wave 4: <t:1747411200:T>, Wave 5: <t:1747440000:T>, Wave 6: <t:1747468800:T>\n\n` +
+
+        `**Origin, RSI & Argo:**\n<t:1747497600:f> [Bevic Convention Center, Area 18 <t:1747497600:R>]\n` +
+        `Limited Ship Sales: RSI Constellation Phoenix\n` +
+        `Wave 1: <t:1747497600:T>, Wave 2: <t:1747526400:T>, Wave 3: <t:1747555200:T>, Wave 4: <t:1747584000:T>, Wave 5: <t:1747612800:T>, Wave 6: <t:1747641600:T>\n\n` +
+
         `**Consolidated Outland, MISC & Mirai:**\n<t:1747670400:f> [Bevic Convention Center, Area 18 <t:1747670400:R>]\n\n` +
+
         `**Crusader & Tumbril:**\n<t:1747843200:f> [Bevic Convention Center, Area 18 <t:1747843200:R>]\n\n` +
+
         `**Anvil Aerospace:**\n<t:1748016000:f> [Bevic Convention Center, Area 18 <t:1748016000:R>]\n\n` +
-        `**Drake Defensecon:**\n<t:1748188800:f> [Riker Memorial Spaceport, Area 18 <t:1748188800:R>]\nLimited Ship Sales: Drake Kraken, Drake Kraken Privateer\nWave 1: <t:1748188800:T>, Wave 2: <t:1748217600:T>, Wave 3: <t:1748246400:T>\n\n` +
-        `**Invictus Finale:**\n<t:1748260800:f> [Riker Memorial Spaceport, Area 18 <t:1748260800:R>]\nEnd of Invictus Launch Week 2955: <t:1748433600:f> [Riker Memorial Spaceport, Area 18 <t:1748433600:R>]`;
+
+        `**Special Aegis Idris Resale (4-hour Waves):**\n<t:1748284800:f> [Bevic Convention Center, Area 18 <t:1748284800:R>]\n` +
+        `Limited Ship Sales: Aegis Idris-P\n` +
+        `Wave 1: <t:1748284800:T>, Wave 2: <t:1748299200:T>, Wave 3: <t:1748313600:T>, Wave 4: <t:1748328000:T>, Wave 5: <t:1748342400:T>, Wave 6: <t:1748356800:T>\n\n` +
+
+        `**Drake Defensecon:**\n<t:1748188800:f> [Bevic Convention Center, Area 18 <t:1748188800:R>]\n` +
+        `Limited Ship Sales: Drake Kraken, Drake Kraken Privateer\n` +
+        `Wave 1: <t:1748188800:T>, Wave 2: <t:1748217600:T>, Wave 3: <t:1748246400:T>, Wave 4: <t:1748275200:T>, Wave 5: <t:1748304000:T>, Wave 6: <t:1748332800:T>\n\n` +
+
+        `**Invictus Finale – All Manufacturers Restock:**\n<t:1748352000:f> [Bevic Convention Center, Area 18 <t:1748352000:R>]\n` +
+        `Limited Ship Sales: [All Limited Ships from Every Manufacturer](https://robertsspaceindustries.com/en/store/pledge/browse/extras/?search=&sort=weight&direction=desc)\n` +
+        `Wave 1: <t:1748366400:T>, Wave 2: <t:1748395200:T>, Wave 3: <t:1748424000:T>\n` +
+        `End of Invictus Launch Week 2955: <t:1748524800:f> [Bevic Convention Center, Area 18 <t:1748524800:R>]`;
 
     navigator.clipboard.writeText(discordSchedule).then(() => {
         document.getElementById('copyToDiscordBtn').innerText = 'Copied schedule in Discord format';
@@ -262,3 +312,4 @@ function copyToDiscord() {
         console.error('Failed to copy text: ', err);
     });
 }
+
