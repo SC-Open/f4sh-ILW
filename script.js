@@ -86,15 +86,15 @@ const schedule = [
     },
     {
         name: "Invictus Finale",
-        timestamp: 1748352000,       // May 26, 2025 08:00 UTC
-        end: 1748524800,             // May 28, 2025 08:00 UTC
+        timestamp: 1748275200, // May 26, 2025 @ 06:20 UTC
+        end: 1748448000,       // May 28, 2025 @ 06:20 UTC
         location: "Bevic Convention Center, Area 18",
         participants: "ALL MANUFACTURERS",
         limitedSales: "All Limited Ships from Every Manufacturer",
         waveTimestamps: [
-            1748366400,              // Wave 1 – May 26, 16:00 UTC
-            1748395200,              // Wave 2 – May 27, 00:00 UTC
-            1748424000               // Wave 3 – May 27, 08:00 UTC
+            1748275200, // Wave 1 – May 26 @ 06:20 UTC
+            1748304000, // Wave 2 – May 26 @ 14:20 UTC
+            1748332800  // Wave 3 – May 27 @ 22:20 UTC
     ]
     }
 ];
@@ -300,10 +300,10 @@ function copyToDiscord() {
         `Limited Ship Sales: Drake Kraken, Drake Kraken Privateer\n` +
         `Wave 1: <t:1748188800:T>, Wave 2: <t:1748217600:T>, Wave 3: <t:1748246400:T>, Wave 4: <t:1748275200:T>, Wave 5: <t:1748304000:T>, Wave 6: <t:1748332800:T>\n\n` +
 
-        `**Invictus Finale – All Manufacturers Restock:**\n<t:1748352000:f> [Bevic Convention Center, Area 18 <t:1748352000:R>]\n` +
+        `**Invictus Finale – All Manufacturers Restock:**\n<t:1748275200:f> [Bevic Convention Center, Area 18 <t:1748275200:R>]\n` +
         `Limited Ship Sales: [All Limited Ships from Every Manufacturer](https://robertsspaceindustries.com/en/store/pledge/browse/extras/?search=&sort=weight&direction=desc)\n` +
-        `Wave 1: <t:1748366400:T>, Wave 2: <t:1748395200:T>, Wave 3: <t:1748424000:T>\n` +
-        `End of Invictus Launch Week 2955: <t:1748524800:f> [Bevic Convention Center, Area 18 <t:1748524800:R>]`;
+        `Wave 1: <t:1748275200:T>, Wave 2: <t:1748304000:T>, Wave 3: <t:1748332800:T>\n` +
+        `End of Invictus Launch Week 2955: <t:1748448000:f> [Bevic Convention Center, Area 18 <t:1748448000:R>]`;
 
     navigator.clipboard.writeText(discordSchedule).then(() => {
         document.getElementById('copyToDiscordBtn').innerText = 'Copied schedule in Discord format';
@@ -311,5 +311,3 @@ function copyToDiscord() {
         console.error('Failed to copy text: ', err);
     });
 }
-
-
