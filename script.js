@@ -45,13 +45,6 @@ const schedule = [
         location: "Bevic Convention Center, Area 18",
         participants: "CRUSADER INDUSTRIES, TUMBRIL LAND SYSTEMS"
     },
-     {
-        name: "Anvil Aerospace",
-        timestamp: 1748016000, // May 23, 2025 08:00 UTC
-        end: 1748188800,       // May 25, 2025 09:00 UTC
-        location: "Bevic Convention Center, Area 18",
-        participants: "ANVIL AEROSPACE"
-    },
     {
         name: "Special Idris Resale",
         timestamp: 1748016000, // Starts with Anvil — May 23, 2025 @ 09:00 UTC
@@ -67,6 +60,13 @@ const schedule = [
             1748073600, // Wave 5: 01:00 UTC (May 24)
             1748088000  // Wave 6: 05:00 UTC (May 24)
             ]
+    },
+     {
+        name: "Anvil Aerospace",
+        timestamp: 1748016000, // May 23, 2025 08:00 UTC
+        end: 1748188800,       // May 25, 2025 09:00 UTC
+        location: "Bevic Convention Center, Area 18",
+        participants: "ANVIL AEROSPACE"
     },
     {
         name: "Drake",
