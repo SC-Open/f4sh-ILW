@@ -160,37 +160,40 @@ function updateSchedule() {
     scheduleContainer.innerHTML = '';
 
     schedule.forEach((event, index) => {
-        const nextEventTimestamp = (index < schedule.length - 1) ? schedule[index + 1].timestamp : null;
-        const eventTimeLeft = getTimeLeft(event.timestamp, nextEventTimestamp, event.end);
+    const nextEventTimestamp = (index < schedule.length - 1) ? schedule[index + 1].timestamp : null;
+    const eventTimeLeft = getTimeLeft(event.timestamp, nextEventTimestamp, event.end);
 
-        let eventHTML = `<div class="event${eventTimeLeft.hasPassed ? ' finished-event' : ''}">`;
+    let eventClasses = ['event'];
+    if (eventTimeLeft.isHappening) eventClasses.push('event-active');
+    if (eventTimeLeft.hasPassed) eventClasses.push('finished-event');
 
-        if (eventTimeLeft.isHappening) {
-            eventHTML = `<div class="event event-active">`;
-            const endTime = event.end ? event.end : event.timestamp + 48 * 3600;
-            const timeLeftToEnd = endTime - (new Date().getTime() / 1000);
+    let eventHTML = `<div class="${eventClasses.join(' ')}">`;
 
-            let timeLeftText;
-            if (timeLeftToEnd > 0) {
-                timeLeftText = calculateTimeLeft(timeLeftToEnd);
-            } else {
-                timeLeftText = 'Finished';
-            }
+    if (eventTimeLeft.isHappening) {
+        const endTime = event.end ? event.end : event.timestamp + 48 * 3600;
+        const timeLeftToEnd = endTime - (new Date().getTime() / 1000);
 
-            eventHTML += `<div class="event-name happening-now">${event.name}<br><span class="location-small">Happening Now in ${event.location}</span><span class="time-left">${timeLeftText}</span></div>`;
-
-        } else if (eventTimeLeft.hasPassed) {
-            eventHTML += `<div class="event-name finished">${event.name} - Finished</div>`;
+        let timeLeftText;
+        if (timeLeftToEnd > 0) {
+            timeLeftText = calculateTimeLeft(timeLeftToEnd);
         } else {
-            const diffInSeconds = event.timestamp - (new Date().getTime() / 1000);
-            if (diffInSeconds > 0 && diffInSeconds <= 86400) {
-                eventHTML += `<div class="event-name">${event.name}</div>
-                          <div class="location">Event starting soon in: ${eventTimeLeft.text} at ${convertTimestampToLocaleString(event.timestamp, selectedTimeZone)} [${event.location}]</div>`;
-            } else {
-                eventHTML += `<div class="event-name">${event.name}</div>
-                          <div class="location">${convertTimestampToLocaleString(event.timestamp, selectedTimeZone)} [${event.location}]</div>`;
-            }
+            timeLeftText = 'Finished';
         }
+
+        eventHTML += `<div class="event-name happening-now">${event.name}<br><span class="location-small">Happening Now in ${event.location}</span><span class="time-left">${timeLeftText}</span></div>`;
+
+    } else if (eventTimeLeft.hasPassed) {
+        eventHTML += `<div class="event-name finished">${event.name} - Finished</div>`;
+    } else {
+        const diffInSeconds = event.timestamp - (new Date().getTime() / 1000);
+        if (diffInSeconds > 0 && diffInSeconds <= 86400) {
+            eventHTML += `<div class="event-name">${event.name}</div>
+                      <div class="location">Event starting soon in: ${eventTimeLeft.text} at ${convertTimestampToLocaleString(event.timestamp, selectedTimeZone)} [${event.location}]</div>`;
+        } else {
+            eventHTML += `<div class="event-name">${event.name}</div>
+                      <div class="location">${convertTimestampToLocaleString(event.timestamp, selectedTimeZone)} [${event.location}]</div>`;
+        }
+    }
 
         if (event.limitedSales) {
             let limitedSalesLinks = '';
