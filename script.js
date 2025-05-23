@@ -161,7 +161,7 @@ function updateSchedule() {
 
     schedule.forEach((event, index) => {
     const nextEventTimestamp = (index < schedule.length - 1) ? schedule[index + 1].timestamp : null;
-    const eventTimeLeft = getTimeLeft(event.timestamp, nextEventTimestamp, event.end);
+    const eventTimeLeft = getTimeLeft(event.timestamp, event.end);
 
     let eventClasses = ['event'];
     if (eventTimeLeft.isHappening) eventClasses.push('event-active');
