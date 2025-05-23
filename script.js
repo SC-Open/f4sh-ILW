@@ -233,9 +233,9 @@ function updateSchedule() {
             let lastWaveStatus = '';
             if (event.waveTimestamps) {
                 event.waveTimestamps.forEach((waveTimestamp, waveIndex) => {
-                    const nextWaveTimestamp = (waveIndex < event.waveTimestamps.length - 1) ?
-                        event.waveTimestamps[waveIndex + 1] :
-                        (nextEventTimestamp ? nextEventTimestamp : Number.MAX_SAFE_INTEGER);
+                    const nextWaveTimestamp = (waveIndex < event.waveTimestamps.length - 1)
+                        ? event.waveTimestamps[waveIndex + 1]
+                        : (event.end ? event.end : Number.MAX_SAFE_INTEGER);
                     const waveTimeLeft = getTimeLeft(waveTimestamp, nextWaveTimestamp);
 
                     let waveStatus;
